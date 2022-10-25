@@ -51,7 +51,7 @@ class Blackjack:
             print("-----------------------------------------------------")
 
 
-            # Choose next step: Hit, Stay, Double
+            """# Choose next step: Hit, Stay, Double
             choice = self.player_choose(player_points)
 
             while choice == 'h':
@@ -102,7 +102,25 @@ class Blackjack:
                 elif player_points == 0:
                     print("*-=Bust=-*")
                     self.loseMatch()
-                    break
+                    break"""
+
+
+            # Dealer reveals cards, score and hit/stay
+
+
+            # If no bust nor blackjack so far, compare scores to see who wins
+            print("Comparing hands:")
+            print("PLAYER            DEALER")
+            print("┌───────────┐     ┌───────────┐")
+            print(f"| Score: {player_points:<2} |     | Score: {dealer_points:<2} |")
+            print("└───────────┘     └───────────┘")
+
+            if player_points > dealer_points:
+                self.winMatch()
+            elif player_points < dealer_points:
+                self.loseMatch()
+            else:
+                self.push()
 
 
         sys.exit("Sorry, you lost the game! See you next time!")

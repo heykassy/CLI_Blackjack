@@ -22,7 +22,7 @@ class Deck:
             if card['value'] == 'J' or card['value'] == 'Q' or card['value'] == 'K':
                 card.update({'points': 10})
             elif card['value'] == 'A':
-                card.update({'points': 1})
+                card.update({'points': 11})
             else:
                 card.update({'points': int(card['value'])})
 

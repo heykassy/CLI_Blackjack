@@ -1,23 +1,24 @@
-52 card deck: 4 of each card (one of each suit/naipe)
-
-J/Q/K = 10 points
-2 - 10 = Face value (2 = points, 3 = 3 points...)
-Ace = 1 or 11 points (whichever is better for the player)
-
 PLAYING:
-1 - user places bet
-2 - 2 cards are dealt to the player (and 2 are dealt to the dealer, one is shown and the other is kept facing down)
-3 - player chooses to either buy a card ("hit")(you can keep buying until you decide to stay) or "stay" (not buying any more cards)
-    If your amount goes over 21, you lose
-4 - Dealers reveals the hidden card
-    If the player's amount is higher than the dealer's, player wins his bet (gets the same amount he betted?)
-    else, if it's a tie, nothing happens, player gets his original bet
-    else, dealer wins
+1 - Player places bet.
+2 - 2 cards are dealt to the player and 2 are dealt to the dealer (one is shown and the other is kept facing down).
+    If, at any moment, player gets a score of 21, they win(aka 'blackjack')
+3 - Player chooses to either: 
+        "hit": get +1 card (they can keep hitting until decide to "stay" or "double down"), 
+        "stay": skip their turn, or
+        "double down": if the player's score is between 9 and 11, they can choose to double the bet for a 'hit' followed by 'stay'.
+    If the score goes over 21 while hitting, player loses(aka 'bust').
+4 - Dealer reveals his hidden card.
+    If dealer's score is 16 or less, he is forced to hit.
+        If the score goes over 21 while hitting, dealer loses(aka 'bust').
+    Else, dealer's forced to stay.
+5 - Both scores are compared.
+    If player's score is higher than the dealer's, player wins his bet (gets the amount he betted * 2).
+    Else, if it's a tie(aka 'push'), player gets his original bet back.
+    else, dealer wins and gets the amount betted.
 
-Rules:
-BLACKJACK:      If the player's first two cards sums to 21, it's a Blackjack. He gets 3 chips to each 2 chips he betted
-SPLIT:          If the player is dealt two of the same card, he has the option to split them: They are aplit and you need to bet the same amount of chips for the split. Then each split gets a second card and each split is hit/stay separetdly (you get two games, basically)
-DOUBLE DOWN:    When the sum of the first two cards equals 9, 10 or 11, the player can double down, which means he has to double the bet and he gets only one card and is forced to stay
-PUSH:           If the player and dealer tie, nothing happens, the player gets his original bet
-DEALER:         The dealer is forced to HIT if his two cards amount to 16 or less and is forced to STAY if his first two cards equals 17 or more
-BUST:           If the amount goes over 21
+The game ends when the player runs out of money
+
+CARD POINTS:
+Ace = 1 or 11 points (whichever is better for the player)
+Jack/Queen/King = 10 points
+2 - 10 = face value (2 = points, 3 = 3 points...)

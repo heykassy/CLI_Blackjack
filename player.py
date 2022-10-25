@@ -8,10 +8,10 @@ class Player:
 
     def bet(self):
         try:
-            self.current_bet = int(input(f"You currently own {self.money}. How much would like to bet on this match? "))
+            self.current_bet = int(input(f"You currently own ${self.money}. How much would like to bet on this match? $"))
             while (self.current_bet > self.money):
                 print(f"You don't have enough money for this bet. Please pick a value you can bet.")
-                self.current_bet = int(input(f"You currently own {self.money}. How much would like to bet? "))
+                self.current_bet = int(input(f"You currently own ${self.money}. How much would like to bet on this match? $"))
             if self.current_bet <= 0:
                 raise ValueError
             self.money -= self.current_bet
@@ -27,16 +27,17 @@ class Player:
         self.hand.append(self.deck.drawCard())
 
 
-    # Check sum for blackjack and (if not blackjack) return player's next options
     def check_hand_sum(self):
-        # Sum all cards in hand
         hand_sum = sum(card['points'] for card in self.hand)
 
-        #If blackjack, player/dealer wins
-        if hand_sum == 21 or (hand_sum == 11 and (any(card['points'] == 1) for card in self.hand)):
+        if hand_sum == 21:
             return 21
-        # If bust, player/dealer loses
+        # If sum is higher than 21 but one of the cards is an Ace, Ace becomes 1
         elif hand_sum > 21:
+            for card in self.hand:
+                if card['points'] == 11:
+                    card['points'] == 1
+                    return hand_sum - 10
             return 0
         else:
             return hand_sum
