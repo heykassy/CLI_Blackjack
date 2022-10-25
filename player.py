@@ -8,7 +8,7 @@ class Player:
 
     def bet(self):
         try:
-            self.current_bet = int(input(f"You currently own {self.money}. How much would like to bet? "))
+            self.current_bet = int(input(f"You currently own {self.money}. How much would like to bet on this match? "))
             while (self.current_bet > self.money):
                 print(f"You don't have enough money for this bet. Please pick a value you can bet.")
                 self.current_bet = int(input(f"You currently own {self.money}. How much would like to bet? "))

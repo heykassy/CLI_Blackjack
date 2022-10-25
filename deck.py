@@ -30,13 +30,11 @@ class Deck:
 
 
     def showCard(self, dict):
-        print("┌───────┐")
-        print(f"| {dict['value']:<2}    |")
-        print("|       |")
-        print(f"|   {dict['suit']}   |")
-        print("|       |")
-        print(f"|    {dict['value']:>2} |")
-        print("└───────┘") 
+        print("┌─────┐")
+        print(f"|{dict['value']:<2}   |")
+        print(f"|  {dict['suit']}  |")
+        print(f"|   {dict['value']:>2}|")
+        print("└─────┘") 
 
 
     def showDeck(self):

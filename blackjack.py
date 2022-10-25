@@ -16,21 +16,19 @@ class Blackjack:
         print(Figlet(font='standard').renderText('Blackjack'))
 
         while self.player.money != 0:
-      
             self.player.bet()
 
             print('-===================================================-')
             
             self.player.first_draw()
 
-            print("\n")
             print("YOUR HAND")
             self.player.showHand()
             
             player_points = self.player.check_hand_sum()
             
             print("┌───────────┐")
-            print(f"| Score: {player_points} |")
+            print(f"| Score: {player_points:<2} |")
             print("└───────────┘")
             print("-----------------------------------------------------")
 
@@ -43,35 +41,20 @@ class Blackjack:
 
             dealer_points = self.dealer.check_hand_sum()
             
-            if dealer_points == 21:
-                print('\n')
-                print("DEALER'S HAND")
-                self.dealer.showHand()
-                print("┌───────────┐")
-                print(f"| Score: {dealer_points} |")
-                print("└───────────┘")
-                print("-----------------------------------------------------")
-                self.loseMatch()
-                continue
-            else:
-                print("\n")
-                print("DEALER'S HAND")
-                self.dealer.deck.showCard(self.dealer.hand[0])
-                print("┌───────┐")
-                print("|       |")
-                print("|       |")
-                print("|       |")
-                print("|       |")
-                print("|       |")
-                print("└───────┘") 
-                print("-----------------------------------------------------")
+            print("DEALER'S HAND")
+            self.dealer.deck.showCard(self.dealer.hand[0])
+            print("┌─────┐")
+            print("|     |")
+            print("|     |")
+            print("|     |")
+            print("└─────┘") 
+            print("-----------------------------------------------------")
 
 
             # Choose next step: Hit, Stay, Double
             choice = self.player_choose(player_points)
 
             while choice == 'h':
-                print("\n")
                 print("YOUR HAND")
 
                 self.player.hit()
@@ -80,7 +63,7 @@ class Blackjack:
                 player_points = self.player.check_hand_sum()
 
                 print("┌───────────┐")
-                print(f"| Score: {player_points} |")
+                print(f"| Score: {player_points:<2} |")
                 print("└───────────┘")
                 print("-----------------------------------------------------")
 
@@ -107,7 +90,7 @@ class Blackjack:
                 player_points = self.player.check_hand_sum()
 
                 print("┌───────────┐")
-                print(f"| Score: {player_points} |")
+                print(f"| Score: {player_points:<2} |")
                 print("└───────────┘")
                 print("-----------------------------------------------------")
 
@@ -135,16 +118,19 @@ class Blackjack:
 
     def winMatch(self):
         print('You won this match')
+        print('-===================================================-')
         self.player.money += (self.player.current_bet * 2)
         # Jump current while loop and loops again
 
     def loseMatch(self):
         print('You lost this match')
+        print('-===================================================-')
         # Jump current while loop and loops again
 
     def push(self):
         print("*-=Push=-*")
         print("It's a tie")
+        print('-===================================================-')
         self.player.money += self.player.current_bet
 
 Blackjack().play()
