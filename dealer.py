@@ -20,9 +20,4 @@ class Dealer(Player):
         print("└───────────┘")
         print("-----------------------------------------------------")
 
-        if dealer_points == 21:
-            return 21
-        elif dealer_points > 21:
-            return 0
-        else:
-            return dealer_points
+        return dealer_points

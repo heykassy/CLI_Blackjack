@@ -36,7 +36,7 @@ class Player:
         elif hand_sum > 21:
             for card in self.hand:
                 if card['points'] == 11:
-                    card['points'] == 1
+                    card['points'] = 1
                     return hand_sum - 10
             return 0
         else:
@@ -55,18 +55,27 @@ class Player:
                 choice = input("Hit[h], Stay[s] or Double Down[d]? ").strip().lower()
             else:
                 choice = input("Hit[h] or Stay[s]? ").strip().lower()
-        
-        if choice == 'h':
-            player_points = self.hit(player_points)
-            if 0 < player_points < 21:
-                self.choose_hit_stay_double(player_points)
-        elif choice == 'd':
-            player_points = self.double(player_points)
+
+        while choice == 'h':
+            player_points = self.hit()
+            
+            if player_points == 21 or player_points == 0:
+                return player_points
+            else:
+                choice = ''
+                while choice not in ['h', 's', 'd']:
+                    if 9 <= player_points <= 11:
+                        choice = input("Hit[h], Stay[s] or Double Down[d]? ").strip().lower()
+                    else:
+                        choice = input("Hit[h] or Stay[s]? ").strip().lower()
+
+        if choice == 'd':
+            player_points = self.double()
         
         return player_points
 
 
-    def hit(self, player_points):
+    def hit(self):
         self.hand.append(self.deck.drawCard())
 
         print("YOUR HAND")
@@ -80,15 +89,10 @@ class Player:
         print("└───────────┘")
         print("-----------------------------------------------------")
 
-        if player_points == 21:
-            return 21
-        elif player_points > 21:
-            return 0
-        else: 
-            return player_points
+        return player_points
 
 
-    def double(self, player_points):
+    def double(self):
         self.hand.append(self.deck.drawCard())
         self.current_bet *= 2
 
@@ -103,9 +107,4 @@ class Player:
         print("└───────────┘")
         print("-----------------------------------------------------")
 
-        if player_points == 21:
-            return 21
-        elif player_points > 21:
-            return 0
-        else:
-            return player_points
+        return player_points
