@@ -111,7 +111,8 @@ class Blackjack:
                 self.push()
 
 
-        sys.exit("Sorry, you lost the game! See you next time!")
+        print(Figlet(font='digital').renderText("Sorry, you lost the game!"))
+        print("See you next time!")
         
 
     def winMatch(self):
