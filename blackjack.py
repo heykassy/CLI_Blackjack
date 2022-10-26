@@ -51,64 +51,45 @@ class Blackjack:
             print("-----------------------------------------------------")
 
 
-            """# Choose next step: Hit, Stay, Double
-            choice = self.player_choose(player_points)
+            # Choose next step: Hit, Stay, Double
+            player_points = self.player.choose_hit_stay_double(player_points)
 
-            while choice == 'h':
-                print("YOUR HAND")
-
-                self.player.hit()
-                self.player.showHand()
-
-                player_points = self.player.check_hand_sum()
-
-                print("┌───────────┐")
-                print(f"| Score: {player_points:<2} |")
-                print("└───────────┘")
-                print("-----------------------------------------------------")
-
-                if player_points == 21:
-                    print("*-=Blackjack=-*")
-                    self.winMatch()
-                    continue
-
-                elif player_points == 0:
-                    print("*-=Bust=-*")
-                    self.loseMatch()
-                    continue
-
-                else:
-                    choice = self.player_choose(player_points)
-
-            if choice == 'd':
-                print("\n")
-                print("YOUR HAND")
-
-                self.player.double()
-                self.player.showHand()
-
-                player_points = self.player.check_hand_sum()
-
-                print("┌───────────┐")
-                print(f"| Score: {player_points:<2} |")
-                print("└───────────┘")
-                print("-----------------------------------------------------")
-
-                if player_points == 21:
-                    print("*-=Blackjack=-*")
-                    self.winMatch()
-                    break
-
-                elif player_points == 0:
-                    print("*-=Bust=-*")
-                    self.loseMatch()
-                    break"""
+            if player_points == 21:
+                print("*-=Blackjack=-*")
+                self.winMatch()
+                continue
+            elif player_points == 0:
+                print("*-=Bust=-*")
+                self.loseMatch()
+                continue
 
 
             # Dealer reveals cards, score and hit/stay
+            print("DEALER'S HAND")
+            self.dealer.showHand()
+            
+            print("┌───────────┐")
+            print(f"| Score: {dealer_points:<2} |")
+            print("└───────────┘")
+            print("-----------------------------------------------------")
 
+            while 0 < dealer_points <= 16:
+                print("Dealer chose to HIT")
+                dealer_points = self.dealer.hit(dealer_points)
+            
+            if dealer_points == 21:
+                print("*-= Dealer Blackjack=-*")
+                self.loseMatch()
+                continue
+            elif dealer_points == 0:
+                print("*-=Dealer Bust=-*")
+                self.winMatch()
+                continue
+            else:
+                print("Dealer chose to STAY")
 
             # If no bust nor blackjack so far, compare scores to see who wins
+            print("-----------------------------------------------------")
             print("Comparing hands:")
             print("PLAYER            DEALER")
             print("┌───────────┐     ┌───────────┐")
@@ -124,15 +105,7 @@ class Blackjack:
 
 
         sys.exit("Sorry, you lost the game! See you next time!")
-
-    def player_choose(self, player_points):
-        choice = ''
-        while choice not in ['h', 's', 'd']:
-            if 9 <= player_points <= 11:
-                choice = input("Hit[h], Stay[s] or Double Down[d]? ").strip().lower()
-            else:
-                choice = input("Hit[h] or Stay[s]? ").strip().lower()
-        return choice
+        
 
     def winMatch(self):
         print('You won this match')

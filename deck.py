@@ -12,9 +12,6 @@ class Deck:
     def generateCards(self):
         values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
         suits = ['♥', '♦', '♣', '♠']
-        # Small deck for tests
-        #values = ['A', '2', '3', '4', '5']
-        #suits = ['♥']
 
         self.deck = [{'value': value, 'suit': suit} for value in values for suit in suits]
 

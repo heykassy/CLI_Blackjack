@@ -48,10 +48,64 @@ class Player:
             self.deck.showCard(card)
 
 
-    def hit(self):
+    def choose_hit_stay_double(self, player_points):
+        choice = ''
+        while choice not in ['h', 's', 'd']:
+            if 9 <= player_points <= 11:
+                choice = input("Hit[h], Stay[s] or Double Down[d]? ").strip().lower()
+            else:
+                choice = input("Hit[h] or Stay[s]? ").strip().lower()
+        
+        if choice == 'h':
+            player_points = self.hit(player_points)
+            if 0 < player_points < 21:
+                self.choose_hit_stay_double(player_points)
+        elif choice == 'd':
+            player_points = self.double(player_points)
+        
+        return player_points
+
+
+    def hit(self, player_points):
         self.hand.append(self.deck.drawCard())
 
+        print("YOUR HAND")
 
-    def double(self):
+        self.showHand()
+
+        player_points = self.check_hand_sum()
+
+        print("┌───────────┐")
+        print(f"| Score: {player_points:<2} |")
+        print("└───────────┘")
+        print("-----------------------------------------------------")
+
+        if player_points == 21:
+            return 21
+        elif player_points > 21:
+            return 0
+        else: 
+            return player_points
+
+
+    def double(self, player_points):
         self.hand.append(self.deck.drawCard())
         self.current_bet *= 2
+
+        print("YOUR HAND")
+
+        self.showHand()
+
+        player_points = self.check_hand_sum()
+
+        print("┌───────────┐")
+        print(f"| Score: {player_points:<2} |")
+        print("└───────────┘")
+        print("-----------------------------------------------------")
+
+        if player_points == 21:
+            return 21
+        elif player_points > 21:
+            return 0
+        else:
+            return player_points
