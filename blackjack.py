@@ -52,7 +52,14 @@ class Blackjack:
 
 
             # Choose next step: Hit, Stay, Double
-            player_points = self.player.choose_hit_stay_double(player_points)
+            choice = ''
+            while choice not in ['h', 's', 'd']:
+                if 9 <= player_points <= 11:
+                    choice = input("Hit[h], Stay[s] or Double Down[d]? ").strip().lower()
+                else:
+                    choice = input("Hit[h] or Stay[s]? ").strip().lower()
+
+            player_points = self.player.choose_hit_stay_double(choice, player_points)
 
             if player_points == 21:
                 print("*-=Blackjack=-*")

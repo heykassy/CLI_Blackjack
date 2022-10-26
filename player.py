@@ -48,14 +48,7 @@ class Player:
             self.deck.showCard(card)
 
 
-    def choose_hit_stay_double(self, player_points):
-        choice = ''
-        while choice not in ['h', 's', 'd']:
-            if 9 <= player_points <= 11:
-                choice = input("Hit[h], Stay[s] or Double Down[d]? ").strip().lower()
-            else:
-                choice = input("Hit[h] or Stay[s]? ").strip().lower()
-
+    def choose_hit_stay_double(self, choice, player_points):
         while choice == 'h':
             player_points = self.hit()
             
