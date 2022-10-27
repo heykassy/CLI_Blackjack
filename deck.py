@@ -43,3 +43,4 @@ class Deck:
         if len(self.deck) < 1:
             self.generateCards()
         return self.deck.pop()
+        
