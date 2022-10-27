@@ -113,6 +113,7 @@ class Blackjack:
 
         print(Figlet(font='digital').renderText("Sorry, you lost the game!"))
         print("See you next time!")
+        input("Press any key to exit.")
         
 
     def winMatch(self):
