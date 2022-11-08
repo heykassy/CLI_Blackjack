@@ -7,7 +7,7 @@ Blackjack game on the command-line interface.
 <p align="center">
   <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#black_joker-blackjack-rules/how-to-play">Blackjack rules/How to play</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-blackjack-rules/how-to-play">Blackjack rules/How to play</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
 </p>
 
@@ -32,7 +32,7 @@ This project was developed using:
 
 Blackjack game on the command-line interface developed as the final project for the course CS50's Introduction to Programming with Python, by Harvard.
 
-## :black_joker: Blackjack rules/How to play
+## 🃏 Blackjack rules/How to play
 
 PLAYING:\
 1 - Player places bet.\
