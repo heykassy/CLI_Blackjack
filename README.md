@@ -1,3 +1,39 @@
+<h1 align="center"> Blackjack Game (NLW #10) </h1>
+
+<p align="center">
+Blackjack game on the command-line interface.
+</p>
+
+<p align="center">
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-blackjack rules/how to play">Blackjack rules/How to play</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">License</a>
+</p>
+
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
+
+<br>
+
+<p align="center">
+  <img alt="Project preview" src="project-preview1.png" width="100%">
+  <img alt="Project preview" src="project-preview2.png" width="100%">
+</p>
+
+## 🚀 Technologies
+
+This project was developed using:
+
+- Python
+
+## 💻 Project
+
+Blackjack game on the command-line interface developed as the final project for the course CS50's Introduction to Programming with Python, by Harvard.
+
+## :black_joker: Blackjack rules/How to play
+
 PLAYING:
 1 - Player places bet.
 2 - 2 cards are dealt to the player and 2 are dealt to the dealer (one is shown and the other is kept facing down).
@@ -22,3 +58,9 @@ CARD POINTS:
 Ace = 1 or 11 points (whichever is better for the player)
 Jack/Queen/King = 10 points
 2 - 10 = face value (2 = points, 3 = 3 points...)
+
+## :memo: License
+
+This project is under MIT license.
+
+---
